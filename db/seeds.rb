@@ -9,6 +9,11 @@
 Category.create(name: "Comedy")
 Category.create(name: "Drama")
 
+VideoCategory.create(category_id: 3, video_id: 14)
+VideoCategory.create(category_id: 3, video_id: 15)
+VideoCategory.create(category_id: 3, video_id: 17)
+VideoCategory.create(category_id: 4, video_id: 16)
+
 Video.create(title: 'Family Guy', description: 'Family Guy is an American adult animated sitcom created by Seth MacFarlane for the Fox Broadcasting Company.', small_cover_url: '/tmp/family_guy.jpg', large_cover_url: '/tmp/monk_large.jpg')
 Video.create(title: 'Futurama', description: 'Futurama is an animated science fiction sitcom created by Matt Groening and developed by Groening and David X. Cohen for the Fox Broadcasting Company', small_cover_url: '/tmp/futurama.jpg', large_cover_url: '/tmp/monk_large.jpg')
 Video.create(title: 'Monk', description: 'Monk is an American comedy-drama detective mystery television series created by Andy Breckman and starring Tony Shalhoub as the eponymous character, Adrian Monk.', small_cover_url: '/tmp/monk.jpg', large_cover_url: '/tmp/monk_large.jpg')
