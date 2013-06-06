@@ -37,6 +37,7 @@ describe Video do
 			title: "Gladiator",
 			small_cover_url: "/tmp/gladiator.jpg",
 			large_cover_url: "/tmp/gladiator_large.jpg")
+		expect(video).to have(1).errors_on(:description)
 	end
 
 	it "can have a category" do
