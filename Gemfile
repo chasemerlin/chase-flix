@@ -19,7 +19,10 @@ end
 
 group :development, :test do 
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
+end
+
+group :test do
+	gem 'shoulda-matchers'
 end
 
 group :production do

@@ -5,16 +5,6 @@ describe Video do
 	it { should validate_presence_of :title }
 	it { should validate_presence_of :description }
 
-	it "saves itself" do
-		video = Video.new(
-			title: "Gladiator",
-			description: "A general becomes a slave who becomes a gladiator.",
-			small_cover_url: "/tmp/gladiator.jpg",
-			large_cover_url: "/tmp/gladiator_large.jpg")
-		video.save
-		Video.first.title.should == "Gladiator"
-	end
-
 	it "should be valid with title, description, small_cover_url, and large_cover_url" do
 		video = Video.new(
 			title: "Gladiator",
@@ -41,13 +31,13 @@ describe Video do
 	end
 
 	it "can have a category" do
-		video = Video.new(
+		video = Video.create(
 			title: "Gladiator",
 			description: "A general becomes a slave who becomes a gladiator.",
 			small_cover_url: "/tmp/gladiator.jpg",
 			large_cover_url: "/tmp/gladiator_large.jpg")
 		category = Category.create(name: "Drama")
 		video.categories << category
-		video.categories.size.should == 1
+		expect(video.categories).to eq([category])
 	end
 end

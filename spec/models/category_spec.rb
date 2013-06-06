@@ -15,9 +15,11 @@ describe Category do
 	end
 
 	it "can have many videos" do
-		category = Category.new(name: "Action")
-		category.videos << Video.new
-		category.videos << Video.new
-		expect(category.videos.size).to eq 2
+		category = Category.create(name: "Action")
+		south_park = Video.create(title: "South Park", description: "Funny kids")
+		gladiator = Video.create(title: "Gladiator", description: "The general who became a slave who became a gladiator.")
+		category.videos << south_park
+		category.videos << gladiator
+		expect(category.videos).to eq([gladiator, south_park])
 	end
 end
