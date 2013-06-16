@@ -6,6 +6,25 @@
       .video_info.span3
         %header
           %h3= @video.title
-          %span Rating: 
+          %span=  "Rating: #{@video.average_rating}"
         %p= @video.description
         
+%section.reviews.container
+  .row
+    .span10.offset1
+      = bootstrap_form_for(@review, url: video_reviews_path(@video), html: { class: 'form-horizontal'}) do |f|
+        = f.select(:rating, [1,2,3,4,5].map { |number| pluralize(number, "Star")}) 
+        = f.text_area :description, rows: 6
+        = f.actions do
+          = f.primary 'Create Review'
+      %header
+        %h3= "User Reviews (#{@video.reviews.count})"
+      %ul
+        - @reviews.each do |review|
+          %article.review
+            %li.row
+              .span2
+                %span=  "#{review.rating} / 5"
+                %p= link_to "#{review.user.full_name}"
+              .span8
+                %p= review.description 
