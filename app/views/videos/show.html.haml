@@ -13,7 +13,7 @@
   .row
     .span10.offset1
       = bootstrap_form_for(@review, url: video_reviews_path(@video), html: { class: 'form-horizontal'}) do |f|
-        = f.select(:rating, [1,2,3,4,5].map { |number| }) 
+        = f.select(:rating, [1,2,3,4,5].map { |number| pluralize(number, "Star")}) 
         = f.text_area :description, rows: 6
         = f.actions do
           = f.primary 'Create Review'
