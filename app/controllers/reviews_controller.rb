@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
 
 	def create 
 		@video = Video.find(params[:video_id])
-		review = @video.reviews.new(params[:review])
-		review.user_id = current_user.id
-		if review.save
+		@review = @video.reviews.new(params[:review])
+		@review.user_id = current_user.id
+		@reviews = @video.reviews
+		if @review.save
 			redirect_to @video
 		else
 			@reviews = @video.reviews.reload
